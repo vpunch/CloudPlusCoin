@@ -1,11 +1,14 @@
 #include <iostream>
+#include <thread>
+#include <chrono>
 
 #include "cpc.h"
 
 using namespace rot::cpc;
 
-void print_cloudcoins(std::vector<CloudCoin> coins);
-void print_nresponses(std::vector<NodeResponse> reps);
+void print_cloudcoins(const std::vector<CloudCoin>& coins);
+void print_nresponses(const std::vector<NodeResponse>& resps);
+std::mutex mtx;
 
 int main()
 {
@@ -13,26 +16,38 @@ int main()
 		std::cout << "=== Print cloudcoins ===\n";
 		print_cloudcoins(coins);
 		std::cout << rr.expl << '\n'; //обязательно перенос
-		//return 0;
+		//return 0;	
+
+		std::cout << "=== Test detect ===\n";
+		std::thread t2([&coins] {
+			for (auto it = coins.begin(); it != coins.end(); ++it) {
+				auto [dstate, drep] = detect(*it);
+				if (!drep.code) {
+					print_cloudcoins({*it});
+
+					std::vector<NodeResponse> dstate_vec;
+					std::copy(begin(dstate), end(dstate), std::back_insert_iterator {dstate_vec});
+					print_nresponses(dstate_vec);
+				} else
+					std::cout << drep.code << '\n' << drep.expl << '\n';
+			}
+		});
 
 		std::cout << "=== Test echo ===\n";
-		if (auto [statuses, echo_rep] = echo(false); !echo_rep.code) {
-			print_nresponses(statuses);
-		} else
-			std::cout << echo_rep.code << '\n' << echo_rep.expl << '\n';
-
-		std::cout << "=== Test detection ===\n";
-		for (auto it = coins.begin(); it != coins.end(); ++it) {
-			auto [dstate, drep] = detection(*it);
-			if (!drep.code) {
-				print_cloudcoins({*it});
-				print_nresponses(dstate);
+		std::thread t1([] {
+			std::this_thread::sleep_for(std::chrono::milliseconds(5'000));
+			if (auto [statuses, echo_rep] = echo({{1, 1}, {1, 2}, {1, 3}}, false); !echo_rep.code) {
+				print_nresponses(statuses);
 			} else
-				std::cout << drep.code << '\n' << drep.expl << '\n';
-		}
+				std::cout << echo_rep.code << '\n' << echo_rep.expl << '\n';
+		});
 
+		//образуется очередь из request(). Дескриптор общий, сохраняет кэш.
+		t1.join();
+		t2.join();
+		print_cloudcoins(coins);
 	} else
-		std::cout << rr.code << '\n' << rr.expl << '\n';
+		std::cout << rr.code << '\n' << rr.expl << '\n';	
 
 	//int* n[3] {new int(1), new int(2), new int(3)};
 	//int* p = n + 2;
@@ -43,8 +58,10 @@ int main()
 
 }
 
-void print_nresponses(std::vector<NodeResponse> resps)
+void print_nresponses(const std::vector<NodeResponse>& resps)
 {
+	std::lock_guard<std::mutex> locker(mtx);
+
 	for (auto it = resps.begin(); it != resps.end(); ++it) {
 		std::cout << "START RESP\n";
 		if (!it->get_report().code) {
@@ -60,18 +77,20 @@ void print_nresponses(std::vector<NodeResponse> resps)
 	}
 }
 
-void print_cloudcoins(std::vector<CloudCoin> coins)
+void print_cloudcoins(const std::vector<CloudCoin>& coins)
 {
+	std::lock_guard<std::mutex> locker(mtx);
+
 	for (auto it = coins.begin(); it != coins.end(); ++it) {
 		std::cout << "START COIN\n";
 		std::cout
-			<< it->serial_number << '\n'
-			<< it->network_number << '\n'
+			<< it->sn << '\n'
+			<< it->nn << '\n'
 			<< it->pown << '\n'
-			<< it->expiration_date.get_string() << '\n';
+			<< it->ed.get_string() << '\n';
 		for (
-				auto anit = it->authenticity_number.begin(); 
-				anit != it->authenticity_number.end(); 
+				auto anit = it->ans.begin(); 
+				anit != it->ans.end(); 
 				++anit)
 			std::cout << *anit << '\n';
 		for (

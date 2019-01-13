@@ -35,4 +35,4 @@ clean :
 #	$(foreach ELEMENT, $(SUBBUILD), $(MAKE) -C $(dir $(ELEMENT)) clean)
 
 test :
-	$(CXX) -o $@ --std=c++17 -L./ -l$(TARGET_NAME) -Wl,-rpath,. src/test.cpp
+	$(CXX) -o $@ --std=c++17 -L./ -l$(TARGET_NAME) -lpthread -Wl,-rpath,. src/test.cpp
