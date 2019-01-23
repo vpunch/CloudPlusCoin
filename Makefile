@@ -2,8 +2,9 @@ TARGET_NAME := cpc
 
 UNIT := cpc
 	
-SRCDIR	:=	src
-OBJDIR 	:=	build
+SRCDIR := src
+INCDIR := src/include
+OBJDIR := build
 
 SUBBUILD :=	#..//build/lib.so
 
@@ -14,7 +15,7 @@ TPDEP := jansson libcurl uuid #three part dependencies
 TARGET := $(TARGET_NAME:%=lib%.so)
 OBJ := $(UNIT:%=%.o)
 LIBS := 	$(shell pkg-config --libs $(TPDEP))
-CFLAGS := 	$(shell pkg-config --cflags $(TPDEP))
+CFLAGS := 	$(shell pkg-config --cflags $(TPDEP)) -I$(INCDIR)
 PREFIX ?= /usr/local
 
 .PHONY: all clean test
@@ -35,4 +36,4 @@ clean :
 #	$(foreach ELEMENT, $(SUBBUILD), $(MAKE) -C $(dir $(ELEMENT)) clean)
 
 test :
-	$(CXX) -o $@ --std=c++17 -L./ -l$(TARGET_NAME) -lpthread -Wl,-rpath,. src/test.cpp
+	$(CXX) -o $@ --std=c++17 -L./ -l$(TARGET_NAME) -lpthread -Wl,-rpath,. src/example/test.cpp -I$(INCDIR)

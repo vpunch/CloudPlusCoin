@@ -20,14 +20,12 @@ int main()
 
 		std::cout << "=== Test detect ===\n";
 		std::thread t2([&coins] {
+			std::set<NodeID> blacklist;
 			for (auto it = coins.begin(); it != coins.end(); ++it) {
-				auto [dstate, drep] = detect(*it);
+				auto [dstate, drep] = detect(*it, &blacklist);
 				if (!drep.code) {
 					print_cloudcoins({*it});
-
-					std::vector<NodeResponse> dstate_vec;
-					std::copy(begin(dstate), end(dstate), std::back_insert_iterator {dstate_vec});
-					print_nresponses(dstate_vec);
+					print_nresponses(dstate);
 				} else
 					std::cout << drep.code << '\n' << drep.expl << '\n';
 			}
@@ -35,7 +33,7 @@ int main()
 
 		std::cout << "=== Test echo ===\n";
 		std::thread t1([] {
-			std::this_thread::sleep_for(std::chrono::milliseconds(5'000));
+			//std::this_thread::sleep_for(std::chrono::milliseconds(5'000));
 			if (auto [statuses, echo_rep] = echo({{1, 1}, {1, 2}, {1, 3}}, false); !echo_rep.code) {
 				print_nresponses(statuses);
 			} else
