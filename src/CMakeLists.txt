@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4)
 
 project(	"CloudPlusCoin" 
 			VERSION 0.1.0
-			DESCRIPTION "Simple CloudCoin C++ API for GNU/Linux")
+			DESCRIPTION "CloudCoin C++ API")
 set(PROJECT_SHORTNAME "cpc")
 
 

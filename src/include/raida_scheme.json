@@ -1,0 +1,308 @@
+R"(
+{
+	"networks": [{
+		"nn": 1,
+		"raida": [{
+			"raida_index": 0,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "au",
+			"urls": [{
+				"url": "raida0.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 1,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "mk",
+			"urls": [{
+				"url": "raida1.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 2,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "ph",
+			"urls": [{
+				"url": "raida2.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 3,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "rs",
+			"urls": [{
+				"url": "raida3.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 4,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "bg",
+			"urls": [{
+				"url": "raida4.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 5,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "kr",
+			"urls": [{
+				"url": "raida5.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 6,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "jp",
+			"urls": [{
+				"url": "raida6.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 7,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "uk",
+			"urls": [{
+				"url": "raida7.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 8,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "in",
+			"urls": [{
+				"url": "raida8.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 9,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "in",
+			"urls": [{
+				"url": "raida9.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 10,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "hr",
+			"urls": [{
+				"url": "raida10.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 11,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "us",
+			"urls": [{
+				"url": "raida11.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 12,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "in",
+			"urls": [{
+				"url": "raida12.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 13,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "tw",
+			"urls": [{
+				"url": "raida13.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 14,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "ru",
+			"urls": [{
+				"url": "raida14.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 15,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "ru",
+			"urls": [{
+				"url": "raida15.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 16,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "co",
+			"urls": [{
+				"url": "raida16.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 17,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "sg",
+			"urls": [{
+				"url": "raida17.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 18,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "de",
+			"urls": [{
+				"url": "raida18.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 19,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "it",
+			"urls": [{
+				"url": "raida19.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 20,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "us",
+			"urls": [{
+				"url": "raida20.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 21,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "in",
+			"urls": [{
+				"url": "raida21.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 22,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "us",
+			"urls": [{
+				"url": "raida22.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 23,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "bg",
+			"urls": [{
+				"url": "raida23.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}, {
+			"raida_index": 24,
+			"failsEcho": "false",
+			"failsDetect": "false",
+			"failsFix": "false",
+			"failsTicket": "false",
+			"location": "ca",
+			"urls": [{
+				"url": "raida24.cloudcoin.global",
+				"port": 443,
+				"milliseconds": -1
+			}]
+		}]
+	}]
+}
+)"
